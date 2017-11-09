@@ -76,7 +76,18 @@
 					
 				</p>				
             </div>
-        </div>	     
-	
+        </div>
+		<script>		
+			$(document).ready(function()
+				{
+					$.get( "https://swapi.co/api/people/?format=json", function(data)
+					{
+						$.each(data.results, function(key, val) 
+						{				      
+							$('.result'+key).append($("<h4>").text(val.name));
+						})
+					})
+				})
+		</script>					
     </body>
 </html>
